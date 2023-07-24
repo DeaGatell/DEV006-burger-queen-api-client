@@ -11,23 +11,23 @@ function Breakfast() {
     return (
         <div className='lg:flex h-full w-1/2 items-center justify-center bg-white'>
             <div>
-                <img src={Americano} alt='Americano' className='rounded-xl'/>
-                <img src={AddGreen} alt='Add Icon Green' className='rounded-xl'/>
+                <img src={Americano} alt='Americano' className='rounded-xl' />
+                <img src={AddGreen} alt='Add Icon Green' className='rounded-xl' />
             </div>
             <p>Americano</p>
             <div>
-                <img src={Latte} alt='Latte' className='rounded-xl'/>
-                <img src={AddGreen} alt='Add Icon Green' className='rounded-xl'/>
+                <img src={Latte} alt='Latte' className='rounded-xl' />
+                <img src={AddGreen} alt='Add Icon Green' className='rounded-xl' />
             </div>
             <p>Latte</p>
             <div>
-                <img src={HamCheese} alt='Ham Cheese Sandwich' className='rounded-xl'/>
-                <img src={AddGreen} alt='Add Icon Green' className='rounded-xl'/>
+                <img src={HamCheese} alt='Ham Cheese Sandwich' className='rounded-xl' />
+                <img src={AddGreen} alt='Add Icon Green' className='rounded-xl' />
             </div>
             <p>Ham & Cheese Sandwich</p>
             <div>
-                <img src={FreshJuice} alt='Fresh Juice' className='rounded-xl'/>
-                <img src={AddGreen} alt='Add Icon Green' className='rounded-xl'/>
+                <img src={FreshJuice} alt='Fresh Juice' className='rounded-xl' />
+                <img src={AddGreen} alt='Add Icon Green' className='rounded-xl' />
             </div>
             <p>Fresh Juice</p>
         </div>
