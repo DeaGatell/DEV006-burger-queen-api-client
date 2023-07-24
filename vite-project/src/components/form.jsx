@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import * as React from 'react';
-export default function Form() {
+function Form() {
 
     return (
         <div className='bg-lime-400 px-10 py-20 rounded-3xl border-2 border-gray-200'>
@@ -29,3 +29,5 @@ export default function Form() {
         </div>
     )
 }
+
+export default Form;
