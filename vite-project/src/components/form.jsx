@@ -4,7 +4,7 @@ function Form() {
 
     return (
         <div className='bg-lime-400 px-10 py-20 rounded-3xl border-2 border-gray-200'>
-            <h1 className='text-3xl font-semibold'>Welcome back</h1>
+            <h1 className='text-3xl font-semibold'>Welcome to Burger Queen</h1>
             <p className='font-medium text-lg text-lime-700 mt-4'>Please enter your details</p>
             <div className='mt-8'>
                 <div>
