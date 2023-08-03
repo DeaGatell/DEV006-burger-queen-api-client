@@ -23,4 +23,5 @@ const DynamicDiv = () => {
     );
 };
 
+
 export default DynamicDiv;
