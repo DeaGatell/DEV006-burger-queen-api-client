@@ -9,21 +9,16 @@ const DynamicDiv = () => {
     };
 
     const handleDecrement = () => {
-        setCount(prevCount => prevCount - 1);
+        if (count > 0) {
+            setCount(prevCount => prevCount - 1);
+        }
     };
 
     return (
-        <div>
-            <button onClick={handleIncrement}>Incrementar</button>
-            <div>
-                {count > 0 && (
-                    <div className="my-div">
-                        <p>Contador: {count}</p>
-                        <button onClick={handleIncrement}>+</button>
-                        <button onClick={handleDecrement}>-</button>
-                    </div>
-                )}
-            </div>
+        <div className="my-div">
+            <p>Contador: {count}</p>
+            <button onClick={handleIncrement}>+</button>
+            <button onClick={handleDecrement}>-</button>
         </div>
     );
 };

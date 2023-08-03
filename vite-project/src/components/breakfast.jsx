@@ -11,13 +11,13 @@ function Breakfast() {
             {/* ESTE ES EL HEADER Y NO AFECTA LOS DIV DE ABAJO - NO TOCAR LA LINEA <HEADER CLASSNAME=''> PARA NO ROMPER */}
             <header className="flex flex-row justify-between">
                 <nav className='flex flex-row pt-0 mb-6 ml-8'>
-                    <div className='flex justify-center items-center text-align p-4 mr-12 border-4 border-red-600 w-60 h-20 rounded-br-3xl rounded-bl-3xl border-t-0 bg-white text-2xl text-red-600 font-bold'>
+                    <div className='flex justify-center items-center text-align p-4 mr-12 border-4 border-amber-400 w-60 h-20 rounded-br-3xl rounded-bl-3xl border-t-0 bg-amber-400 text-white text-2xl text-red-600 font-bold'>
                         <button >BREAKFAST</button>
                     </div>
-                    <div className='flex justify-center items-center text-align p-4 mr-12 border-4 border-red-600 w-60 h-20 rounded-br-3xl rounded-bl-3xl border-t-0 bg-white text-2xl text-red-600 font-bold'>
+                    <div className='flex justify-center items-center text-align p-4 mr-12 border-4 border-amber-400 w-60 h-20 rounded-br-3xl rounded-bl-3xl border-t-0 bg-white text-2xl text-red-600 font-bold'>
                         <button >LUNCH</button>
                     </div>
-                    <div className='flex justify-center items-center text-align p-4 mr-12 border-4 border-red-600 w-60 h-20 rounded-br-3xl rounded-bl-3xl border-t-0 bg-white text-2xl text-red-600 font-bold'>
+                    <div className='flex justify-center items-center text-align p-4 mr-12 border-4 border-amber-400 w-60 h-20 rounded-br-3xl rounded-bl-3xl border-t-0 bg-white text-2xl text-red-600 font-bold'>
                         <button >DONE</button>
                     </div>
                 </nav>
@@ -53,7 +53,7 @@ function Breakfast() {
                             <div className='relative'>
                                 <div className='relative flex flex-col p-8'>
                                     <div className='relative border-amber-400 border-2 rounded-xl'>
-                                        <input className='w-full h-18 flex justify-center items-center z-10  border-1 border-amber-400 rounded-xl p-4 text-amber-400' placeholder='Client Name' type='text' />
+                                        <input className='w-full h-18 flex justify-center items-center z-10  border-2 border-amber-400 rounded-xl p-4 text-black' placeholder='Client Name' type='text' />
                                     </div>
                                     
                                 </div>
@@ -77,7 +77,7 @@ function Breakfast() {
                                 <div className='relative w-full'>
                                     <div
                                         className='w-full min-h-50 items-center justify-center py-3 rounded-xl bg-amber-400 border-amber-400  border-2 text-white text-lg text-center font-bold'>
-                                        $000
+                                        Total $000
                                     </div>
                                 </div>
 
