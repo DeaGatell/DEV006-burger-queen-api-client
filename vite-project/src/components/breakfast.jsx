@@ -1,15 +1,21 @@
-/* eslint-disable no-unused-vars */
 import * as React from 'react';
 import LogOut from '../images/cerrar-sesion.png';
-import { ProductsData } from './order';
-import DynamicDiv from './counter';
+import { ProductsData } from './ProductsData';
+import DynamicDiv from './DynamicDiv';
+import { useState } from 'react';
 
 function Breakfast() {
 
+    const [selectedProduct, setSelectedProducts] = useState({});
+    const handleSelected = (selectedId) => {
+        setSelectedProducts((prevSelectedProducts) => ({
+            ...prevSelectedProducts,
+            [selectedId]: prevSelectedProducts[selectedId] ? prevSelectedProducts[selectedId] + 1 : 1,
+        }));
+    };
+    console.log("handleSelectedbreakfast")
     return (
-
         <div className="h-screen flex flex-col">
-
             {/* ESTE ES EL HEADER Y NO AFECTA LOS DIV DE ABAJO - NO TOCAR LA LINEA <HEADER CLASSNAME=''> PARA NO ROMPER */}
             <header className="flex flex-row justify-between">
                 <nav className='flex flex-row pt-0 mb-6 ml-8'>
@@ -40,7 +46,7 @@ function Breakfast() {
                     <div className='flex-1 items-center justify-center bg-white  rounded-3xl'>
                         <div className='relative flex flex-col p-8 justify-center items-center'>
                             <div className='relative justify-center items-center'>
-                                <ProductsData />
+                                <ProductsData handleSelected={handleSelected} />
                             </div>
                         </div>
                     </div>
@@ -63,7 +69,7 @@ function Breakfast() {
                         </div>
 
                         <div className=''>
-                            <DynamicDiv />
+                            {selectedProduct && <DynamicDiv />}
                         </div>
 
                         <div className='grid grid-cols-2 gap-3  items-center justify-center'>
@@ -90,7 +96,7 @@ function Breakfast() {
             </div>
 
 
-        </div>)
+        </div>
+    )
 }
-
 export default Breakfast;
