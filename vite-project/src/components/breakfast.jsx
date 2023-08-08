@@ -3,17 +3,50 @@ import LogOut from '../images/cerrar-sesion.png';
 import { ProductsData } from './ProductsData';
 import DynamicDiv from './DynamicDiv';
 import { useState } from 'react';
+import AddProduct from './AddProduct';
+
 
 function Breakfast() {
+    const [clientName, setClientName] = useState("");
+    const [selectedProduct, setSelectedProducts] = useState([]);
+    const handleSelected = (selected) => {
+        const product = { qty: 1, product: selected }
+        // Función para agregar un nuevo producto al estado o aumentar qty si ya existe
 
-    const [selectedProduct, setSelectedProducts] = useState({});
-    const handleSelected = (selectedId) => {
-        setSelectedProducts((prevSelectedProducts) => ({
-            ...prevSelectedProducts,
-            [selectedId]: prevSelectedProducts[selectedId] ? prevSelectedProducts[selectedId] + 1 : 1,
-        }));
+        // Verificar si el producto ya existe en el estado
+        const index = selectedProduct.findIndex(item => item.product.id === product.product.id);
+
+        if (index !== -1) {
+            // Si el producto ya existe, aumentar qty
+            const newState = [...selectedProduct];
+            newState[index].qty += 1;
+            setSelectedProducts(newState);
+        } else {
+            // Si el producto no existe, agregarlo al estado
+            setSelectedProducts([...selectedProduct, product]);
+        }
+
     };
-    console.log("handleSelectedbreakfast")
+
+    console.log("handleSelectedbreakfast", selectedProduct)
+
+    const handleSend = () => {
+        console.log("enviando orden");
+        const order = {
+            userId: localStorage.getItem("workers"),
+            client: clientName,
+            products: selectedProduct,
+            status: "pending",
+            dateEntry: new Date()
+        }
+        console.log(order);
+    }
+
+    const handleChange = (event) => {
+        setClientName(event.target.value)
+
+    }
+
     return (
         <div className="h-screen flex flex-col">
             {/* ESTE ES EL HEADER Y NO AFECTA LOS DIV DE ABAJO - NO TOCAR LA LINEA <HEADER CLASSNAME=''> PARA NO ROMPER */}
@@ -61,15 +94,20 @@ function Breakfast() {
                             <div className='relative'>
                                 <div className='relative flex flex-col p-8'>
                                     <div className='relative border-amber-400 border-2 rounded-xl'>
-                                        <input className='w-full h-18 flex justify-center items-center z-10  border-2 border-amber-400 rounded-xl p-4 text-black' placeholder='Client Name' type='text' />
+                                        <input className='w-full h-18 flex justify-center items-center z-10  border-2 border-amber-400 rounded-xl p-4 text-black' placeholder='Client Name' type='text' onChange={handleChange} />
                                     </div>
 
                                 </div>
                             </div>
                         </div>
-
+                        {selectedProduct.map((item, index) => {
+                            console.log(item)
+                            //Aqui tenemos que crear cada uno de los productos de la orden
+                        })}
                         <div className=''>
                             {selectedProduct && <DynamicDiv />}
+                            <AddProduct />
+
                         </div>
 
                         <div className='grid grid-cols-2 gap-3  items-center justify-center'>
@@ -77,7 +115,8 @@ function Breakfast() {
                                 <div className='relative w-full'>
                                     <button
                                         className='w-full active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] easy-in-out py-3 rounded-xl bg-orange-500 border-orange-400 border-2 text-white text-lg font-bold'
-                                        type='submit'>SEND</button>
+                                        type='submit'
+                                        onClick={handleSend}>SEND</button>
                                 </div>
 
                             </div>

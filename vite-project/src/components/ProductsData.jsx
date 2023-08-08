@@ -10,8 +10,6 @@ function ProductsData({ handleSelected }) {
 
 
 
-
-
     useEffect(() => {
         Foods()
             .then(data => {
@@ -25,7 +23,7 @@ function ProductsData({ handleSelected }) {
 
     const handleProductSelected = (selectedId) => {
         handleSelected(selectedId);
-        console.log("handleSelectec" + handleSelected(selectedId));
+
     };
 
     // console.log("handleProductSelected");
@@ -34,22 +32,22 @@ function ProductsData({ handleSelected }) {
 
     return (
         <div className='grid grid-cols-2 gap-3'>
-            {productsData.map((props) => (
+            {productsData.map((product) => (
                 <div
-                    key={props.id}
+                    key={product.id}
                     className='bg-white border-lime-500 border-[3px] rounded-[50px] my-3 mx-5 font-judson text-2xl p-2 shadow-lg'
                 >
                     <div className='flex items-center justify-center'>
                         <img
-                            src={props.image}
+                            src={product.image}
                             alt='Latte'
                             className='w-12 h-12 rounded-xl' />
                     </div>
-                    <p className='text-xl text-center text-black'>{props.name}</p>
-                    <p className='text-xl text-center text-black'>$ {props.price}</p>
+                    <p className='text-xl text-center text-black'>{product.name}</p>
+                    <p className='text-xl text-center text-black'>$ {product.price}</p>
                     <button className='relative top-[-10px] right-[-12px] w-18 h-18 flex justify-center items-center z-10' onClick={() => {
-                        console.log('Hicieron clic en el botón con id:', props.id);
-                        handleProductSelected(props.id)
+                        console.log('Hicieron clic en el botón con id:', product.id);
+                        handleProductSelected(product)
                     }}>
 
                         <img src={AddGreen} alt='Add Icon Green' className='w-18 h-18 border-4 rounded-full cursor-pointer' />
