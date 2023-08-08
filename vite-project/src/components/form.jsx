@@ -27,14 +27,14 @@ function Form() {
 
         };
 
-        try {
-            const token = await LoginAPI(options, setError);
-            localStorage.setItem("token", token);
+
+        const token = await LoginAPI(options, setError);
+        const workersName = await LoginAPI(options, setError);
+        if (token && workersName) {
             navigate("/breakfast");
-        } catch (error) {
-            console.error(error);
-            setError("Error al iniciar sesión. Por favor, verifica tus credenciales");
         }
+
+
     };
 
     return (
@@ -44,11 +44,11 @@ function Form() {
             <form className='mt-8' onSubmit={handleSubmit}>
                 <div>
                     <label className='text-lg font-medium'>Email</label>
-                    <input className='w-full border-2 border-yellow-300 rounded-xl p-4 mt-1 bg-white' placeholder='Enter your email' type='text' value={email} onChange={(e) => setEmail(e.target.value)}/>
+                    <input className='w-full border-2 border-yellow-300 rounded-xl p-4 mt-1 bg-white' placeholder='Enter your email' type='text' value={email} onChange={(e) => setEmail(e.target.value)} />
                 </div>
                 <div className='mt-4'>
                     <label className='text-lg font-medium'>Password</label>
-                    <input className='w-full border-2 border-yellow-300 rounded-xl p-4 mt-1 bg-white' placeholder='Enter your password' type='password' value={password} onChange={(e) => setPassword(e.target.value)}/>
+                    <input className='w-full border-2 border-yellow-300 rounded-xl p-4 mt-1 bg-white' placeholder='Enter your password' type='password' value={password} onChange={(e) => setPassword(e.target.value)} />
                 </div>
                 <div className='mt-8 flex flex-col justify-between items-center'>
                     <div>
@@ -58,10 +58,10 @@ function Form() {
                     <button className='font-medium text-base text-orange-500'>Forgot password?</button>
                 </div>
                 <div className='mt-8 flex flex-col gap-y-4'>
-                {error && <div>{error}</div>}
-                    <button 
-                    className='active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] easy-in-out py-3 rounded-xl bg-orange-500 border-orange-400 border-2 text-white text-lg font-bold' 
-                    type='submit'>Sign in</button>
+                    {error && <div>{error}</div>}
+                    <button
+                        className='active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] easy-in-out py-3 rounded-xl bg-orange-500 border-orange-400 border-2 text-white text-lg font-bold'
+                        type='submit'>Sign in</button>
                 </div>
             </form>
         </div>
