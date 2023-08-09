@@ -16,8 +16,7 @@ function LoginAPI(options, setError) {
             token = data.accessToken;
             localStorage.setItem('token', token);
             console.log(token);
-            return data;
-            // Aquí puedes realizar acciones adicionales con el token
+            return data;            
         })
         .then((data) => {
             workersName = data.user.id;
