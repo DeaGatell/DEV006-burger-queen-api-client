@@ -29,8 +29,8 @@ function Form() {
 
 
         const token = await LoginAPI(options, setError);
-        const workersName = await LoginAPI(options, setError);
-        if (token && workersName) {
+        const workersId = await LoginAPI(options, setError);
+        if (token && workersId) {
             navigate("/breakfast");
         }
 
