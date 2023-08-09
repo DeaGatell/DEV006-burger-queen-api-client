@@ -3,7 +3,8 @@ import LogOut from '../images/cerrar-sesion.png';
 import { ProductsData } from './ProductsData';
 import DynamicDiv from './DynamicDiv';
 import { useState } from 'react';
-import AddProduct from './AddProduct';
+import { createOrder } from '../Service/api.js';
+
 
 
 function Breakfast() {
@@ -39,7 +40,11 @@ function Breakfast() {
             status: "pending",
             dateEntry: new Date()
         }
-        console.log(order);
+        createOrder(order).then(() => {
+            setClientName("");
+            setSelectedProducts([]);
+        })
+
     }
 
     const handleChange = (event) => {
@@ -100,15 +105,19 @@ function Breakfast() {
                                 </div>
                             </div>
                         </div>
-                        {selectedProduct.map((item, index) => {
-                            console.log(item)
-                            //Aqui tenemos que crear cada uno de los productos de la orden
-                        })}
-                        <div className=''>
-                            {selectedProduct && <DynamicDiv />}
-                            <AddProduct />
+                        {/* Aqui tenemos que crear cada uno de los productos de la orden */}
+
+                        <div className='w-full h-20'>
+                            {selectedProduct.map((item) => {
+                                { console.log(item.product.id) }
+                                < div key={item} >
+                                    <p>{item.product.id}</p>
+
+                                </div>
+                            })}
 
                         </div>
+
 
                         <div className='grid grid-cols-2 gap-3  items-center justify-center'>
                             <div className='relative flex flex-col p-8 items-center justify-center'>
@@ -135,7 +144,7 @@ function Breakfast() {
             </div>
 
 
-        </div>
+        </div >
     )
 }
 export default Breakfast;
