@@ -3,7 +3,7 @@ import axios from 'axios';
 
 function LoginAPI(options, setError) {
     let token = '';
-    let workersName = '';
+    let workersId = '';
 
     return axios.post('http://localhost:8080/login', options.body, { headers: options.headers })
         .then(response => {
@@ -19,12 +19,12 @@ function LoginAPI(options, setError) {
             return data;            
         })
         .then((data) => {
-            workersName = data.user.id;
-            localStorage.setItem("workers", workersName);
-            console.log(workersName);
+            workersId = data.user.id;
+            localStorage.setItem("workers", workersId);
+            console.log(workersId);
             return {
                 token: token,
-                workersName: workersName
+                workersId: workersId
             };
         })
         .catch(error => {
